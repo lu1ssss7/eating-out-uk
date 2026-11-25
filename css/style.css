@@ -1,0 +1,398 @@
+/* =========================================================
+   Food & Data – feuille de style unique
+   1. Variables   2. Base   3. En-tête   4. Article
+   5. Figure 1    6. Pied de page   7. Petits écrans
+   ========================================================= */
+
+/* ---------- 1. Variables ---------- */
+
+:root {
+  /* Couleurs : les deux couleurs de données servent aussi au graphique (lues par chart.js) */
+  --paper: #ffffff;
+  --ink: #1f2933;
+  --muted: #5b6670;
+  --rule: #d9dee3;
+  --band: #eef2f4;
+  --eating-out: #b5373f; /* rouge brique : le restaurant, le pub */
+  --at-home: #3d5a80;    /* bleu ardoise : la cuisine */
+
+  --serif: "Newsreader", Georgia, serif;
+  --sans: "Public Sans", Arial, sans-serif;
+}
+
+/* ---------- 2. Base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow-x: clip; /* la bande du graphique déborde volontairement de la colonne */
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.1875rem;
+  line-height: 1.65;
+}
+
+.wrap {
+  width: min(100% - 2.5rem, 40rem);
+  margin-inline: auto;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--at-home);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  padding: 0.5rem 1rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--sans);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ---------- 3. En-tête ---------- */
+
+.site-header__inner {
+  padding: 1.25rem 0;
+}
+
+.site-header__brand {
+  margin: 0;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* ---------- 4. Article ---------- */
+
+.article__header {
+  padding: 2.5rem 0 2rem;
+}
+
+.article__title {
+  margin: 0 0 1rem;
+  font-size: clamp(2.3rem, 6vw, 3.4rem);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+}
+
+.article__standfirst {
+  margin: 0 0 1.25rem;
+  font-size: 1.3rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.article__byline {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.article__body p {
+  margin: 0 0 1.1rem;
+}
+
+.article__body h2 {
+  margin: 2.75rem 0 0.6rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Citation en exergue : seule touche de couleur dans le texte */
+.pullquote {
+  margin: 2.5rem 0;
+}
+
+.pullquote p {
+  margin: 0;
+  font-size: 1.75rem;
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--eating-out);
+}
+
+/* Encadré méthodologique */
+.article__note {
+  margin: 3.5rem 0 3rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--ink);
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.article__note h2 {
+  margin: 0 0 0.5rem;
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+/* ---------- 5. Figure 1 ---------- */
+
+/* La figure sort de la colonne de texte et occupe toute la largeur sur un fond teinté */
+.figure {
+  margin: 2.5rem calc(50% - 50vw);
+  padding: 2.5rem max(1.25rem, calc(50vw - 30rem));
+  background: var(--band);
+  font-family: var(--sans);
+}
+
+.figure__title {
+  margin: 0 0 0.3rem;
+  font-family: var(--serif);
+  font-size: 1.7rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.figure__subtitle {
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+}
+
+/* Chiffres clés : des boutons qui doivent se voir comme tels (cadre, survol, mention "Show on the chart") */
+.keyfigs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.keyfig {
+  display: flex;
+  flex-direction: column;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.keyfig:hover {
+  border-color: var(--ink);
+}
+
+/* Chiffre actuellement affiché sur le graphique */
+.keyfig[aria-pressed="true"] {
+  border-color: var(--ink);
+  box-shadow: inset 0 -4px 0 var(--ink);
+}
+
+.keyfig__value {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--eating-out);
+  font-variant-numeric: tabular-nums;
+}
+
+.keyfig__label {
+  flex: 1;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.keyfig__action {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--at-home);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.keyfig:hover .keyfig__action {
+  text-decoration-thickness: 2px;
+}
+
+/* La consigne passe au-dessus des trois chiffres */
+.keyfigs__hint {
+  order: -1;
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* Contrôles du graphique */
+.figure__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.figure__group {
+  display: inline-flex;
+}
+
+.figure__btn,
+.figure__play,
+.figure__select {
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--ink);
+  border-radius: 3px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+.figure__btn + .figure__btn {
+  margin-left: -1px;
+}
+
+.figure__btn[aria-pressed="true"],
+.figure__play {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.figure__play {
+  margin-left: auto;
+  font-weight: 700;
+}
+
+.figure__play:disabled {
+  background: var(--paper);
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+.figure__check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.figure__story {
+  min-height: 1.6em;
+  margin: 0 0 0.5rem;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-style: italic;
+}
+
+.figure__canvas-wrap {
+  position: relative;
+  height: 440px;
+  padding: 0.75rem 0.5rem 0 0;
+  background: var(--paper);
+}
+
+.figure__detail {
+  margin: 1rem 0 0;
+}
+
+.figure__detail-value {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.figure__caption {
+  margin-top: 1rem;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.figure__table {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.figure__table summary {
+  cursor: pointer;
+}
+
+.figure__table table {
+  width: 100%;
+  margin-top: 0.5rem;
+  border-collapse: collapse;
+  background: var(--paper);
+}
+
+.figure__table th,
+.figure__table td {
+  padding: 0.3rem 0.6rem;
+  border-bottom: 1px solid var(--rule);
+  text-align: right;
+}
+
+.figure__table th:first-child,
+.figure__table td:first-child {
+  text-align: left;
+}
+
+/* ---------- 6. Pied de page ---------- */
+
+.site-footer {
+  padding: 1.5rem 0 3rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.site-footer p {
+  margin: 0 0 0.4rem;
+}
+
+/* ---------- 7. Petits écrans ---------- */
+
+@media (max-width: 640px) {
+  body {
+    font-size: 1.0625rem;
+  }
+
+  .keyfigs {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .figure__play {
+    margin-left: 0;
+  }
+
+  .figure__canvas-wrap {
+    height: 360px;
+  }
+}
