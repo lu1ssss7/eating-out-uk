@@ -77,15 +77,26 @@ a {
 
 /* ---------- 3. En-tête ---------- */
 
+/* Bandeau sombre, assorti au pied de page */
+.site-header {
+  background: var(--ink);
+  color: var(--paper);
+}
+
 .site-header__inner {
-  padding: 1.25rem 0;
+  width: min(100% - 2.5rem, 60rem);
+  padding: 0.9rem 0;
 }
 
 .site-header__brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
   margin: 0;
-  font-family: var(--sans);
-  font-weight: 700;
-  font-size: 1rem;
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 600;
 }
 
 /* ---------- 4. Article ---------- */
@@ -138,24 +149,6 @@ a {
   font-style: italic;
   line-height: 1.3;
   color: var(--eating-out);
-}
-
-/* Encadré méthodologique */
-.article__note {
-  margin: 3.5rem 0 3rem;
-  padding-top: 1rem;
-  border-top: 2px solid var(--ink);
-  font-family: var(--sans);
-  font-size: 0.9rem;
-  line-height: 1.55;
-  color: var(--muted);
-}
-
-.article__note h2 {
-  margin: 0 0 0.5rem;
-  font-family: var(--sans);
-  font-size: 1rem;
-  color: var(--ink);
 }
 
 /* ---------- 5. Figure 1 ---------- */
@@ -364,16 +357,76 @@ a {
 
 /* ---------- 6. Pied de page ---------- */
 
+/* Logo : une assiette vue de dessus, le même motif que le carrousel Instagram (en-tête et pied de page) */
+
 .site-footer {
-  padding: 1.5rem 0 3rem;
-  border-top: 1px solid var(--rule);
+  margin-top: 2rem;
+  padding: 3.5rem 0 2.5rem;
+  background: var(--ink);
+  color: var(--paper);
   font-family: var(--sans);
-  font-size: 0.82rem;
-  color: var(--muted);
+}
+
+.site-footer__inner {
+  width: min(100% - 2.5rem, 60rem);
+  margin-inline: auto;
+}
+
+/* Logo, nom et signature centrés, les uns sous les autres */
+.site-footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.site-footer .site-footer__name {
+  margin: 0;
+  color: var(--paper);
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.site-footer .site-footer__tagline {
+  margin: -0.4rem 0 0;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #c9d1d9;
+}
+
+.site-footer__cols {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #3a4652;
+}
+
+.site-footer h2 {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
 }
 
 .site-footer p {
-  margin: 0 0 0.4rem;
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #c9d1d9;
+}
+
+.site-footer a {
+  color: var(--paper);
+  text-underline-offset: 3px;
+}
+
+.site-footer a:focus-visible {
+  outline-color: var(--paper);
 }
 
 /* ---------- 7. Petits écrans ---------- */
@@ -394,5 +447,10 @@ a {
 
   .figure__canvas-wrap {
     height: 360px;
+  }
+
+  .site-footer__cols {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
