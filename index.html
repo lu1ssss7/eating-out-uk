@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Britain is eating out again, but not like it did before Covid</title>
+  <meta name="description"
+    content="Defra data shows the share of UK food spending made outside the home collapsed in 2020-21 and is still below its pre-Covid level.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Public+Sans:wght@400;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to the article</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <p class="site-header__brand">Food &amp; Data</p>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <article class="article">
+      <header class="article__header">
+        <h1 class="article__title">Britain is eating out again, but not like it did before Covid</h1>
+        <p class="article__standfirst">Five years after lockdowns emptied the nation's restaurants and pubs, official
+          data shows the share of food spending made outside the home has still not returned to its pre-pandemic level
+        </p>
+        <p class="article__byline">By Luis Eyherachar, data reporter, <time datetime="2026-11-27">27 November
+            2026</time></p>
+      </header>
+
+      <div class="article__body">
+        <p>For almost two decades, the way Britons split their food budget barely moved. Roughly one pound in every four
+          spent on food and non-alcoholic drinks went on meals, snacks and coffees bought outside the home; the rest
+          went into the shopping basket. Then the pandemic broke that pattern in a single year, and the latest
+          government figures suggest it has not fully mended.</p>
+        <p>According to the Family Food survey, published by the Department for Environment, Food and Rural Affairs
+          (Defra), the share of food spending made outside the home stood at 29.0% in 2019-20. In 2020-21, the year of
+          lockdowns, it collapsed to 7.9%. By 2024-25 it had climbed back to 22.7%: a clear recovery, but still 6.3
+          percentage points below where it was before Covid.</p>
+        <p>The three key figures shown with the chart below summarise that story. Select any of them to find the
+          corresponding moment on the chart.</p>
+
+        <section aria-labelledby="two-decades-of-stability">
+          <h2 id="two-decades-of-stability">Two decades of stability</h2>
+          <p>Figure 1 shows the share of food spending eaten out from 2001-02 to 2024-25. For most of that period the
+            line is strikingly flat, hovering between about 26% and 29%. There is a small dip after the 2008 financial
+            crisis (the share fell to 25.7% in 2009), followed by a slow climb to its 2019-20 peak.</p>
+          <!-- Figure 1 : bloc à copier tel quel dans le one-page -->
+          <figure class="figure" id="figure1" aria-labelledby="figure1-title" aria-describedby="figure1-subtitle">
+            <h3 class="figure__title" id="figure1-title">Eating out collapsed in 2020-21 and has not fully recovered
+            </h3>
+            <p class="figure__subtitle" id="figure1-subtitle">Share of UK household food and non-alcoholic drink
+              spending made outside the home, 2001-02 to 2024-25</p>
+
+            <!-- Chiffres clés : compteurs GSAP ; un clic sélectionne le point dans la Figure 1 -->
+            <section class="keyfigs" id="keyfigs" aria-label="Key figures">
+              <button type="button" class="keyfig" data-index="18" aria-pressed="false" aria-describedby="keyfigs-hint">
+                <span class="keyfig__value">29.0%</span>
+                <span class="keyfig__label">of food spending eaten out in 2019-20, before Covid</span>
+                <span class="keyfig__action">Show on the chart</span>
+              </button>
+              <button type="button" class="keyfig" data-index="19" aria-pressed="false" aria-describedby="keyfigs-hint">
+                <span class="keyfig__value">7.9%</span>
+                <span class="keyfig__label">in 2020-21, the year of lockdowns</span>
+                <span class="keyfig__action">Show on the chart</span>
+              </button>
+              <button type="button" class="keyfig" data-index="23" aria-pressed="false" aria-describedby="keyfigs-hint">
+                <span class="keyfig__value">22.7%</span>
+                <span class="keyfig__label">in 2024-25, still below the pre-Covid level</span>
+                <span class="keyfig__action">Show on the chart</span>
+              </button>
+              <p class="keyfigs__hint" id="keyfigs-hint">Click a figure to see it on the chart.</p>
+            </section>
+
+            <div class="figure__controls">
+              <div class="figure__group" role="group" aria-label="Series to display">
+                <button type="button" class="figure__btn" data-view="out" aria-pressed="true">Eating out</button>
+                <button type="button" class="figure__btn" data-view="home" aria-pressed="false">At home</button>
+                <button type="button" class="figure__btn" data-view="both" aria-pressed="false">Both</button>
+              </div>
+
+              <label for="figure1-range">Period
+                <select class="figure__select" id="figure1-range">
+                  <option value="all" selected>2001-02 to 2024-25</option>
+                  <option value="before">Before Covid (to 2019-20)</option>
+                  <option value="after">Covid and after (from 2019-20)</option>
+                </select>
+              </label>
+
+              <label class="figure__check" for="figure1-alcohol">
+                <input type="checkbox" id="figure1-alcohol"> Include alcohol
+              </label>
+
+              <button type="button" class="figure__play" id="figure1-play">Play the story</button>
+            </div>
+
+            <p class="figure__story" id="figure1-story" aria-live="polite"></p>
+
+            <div class="figure__canvas-wrap">
+              <canvas id="figure1-canvas" role="img"
+                aria-label="Line chart. The share of food spending eaten out stays between about 26% and 29% from 2001-02 to 2019-20, falls to 7.9% in 2020-21, then rises to 22.7% in 2024-25, still 6.3 points below the pre-Covid level.">
+                The share of food spending eaten out was 29.0% in 2019-20, 7.9% in 2020-21 and 22.7% in 2024-25.
+              </canvas>
+            </div>
+
+            <p class="figure__detail" id="figure1-detail" aria-live="polite">Click a point on the chart to see the
+              details for that period.</p>
+
+            <figcaption class="figure__caption">
+              Source: Defra, Family Food datasets (UKExp_17Sep26, published 17 September 2026), Living Costs and Food
+              Survey. Own calculations.
+              Shares are calculated from spending in current prices. Hollow markers are calendar years (2006 to 2014);
+              filled markers are financial years (April to March).
+              Survey data are self-reported and tend to under-record eating out and alcohol. Data collection in 2020-21
+              moved to telephone interviews because of Covid-19.
+            </figcaption>
+
+            <details class="figure__table">
+              <summary>Show the data table</summary>
+              <table>
+                <caption class="visually-hidden">Share of food and drink spending by place, UK</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Period</th>
+                    <th scope="col">Eating out</th>
+                    <th scope="col">At home</th>
+                    <th scope="col">Eating out, incl. alcohol</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2001-02</td>
+                    <td>27.0%</td>
+                    <td>73.0%</td>
+                    <td>33.3%</td>
+                  </tr>
+                  <tr>
+                    <td>2002-03</td>
+                    <td>27.2%</td>
+                    <td>72.8%</td>
+                    <td>33.4%</td>
+                  </tr>
+                  <tr>
+                    <td>2003-04</td>
+                    <td>27.0%</td>
+                    <td>73.0%</td>
+                    <td>32.7%</td>
+                  </tr>
+                  <tr>
+                    <td>2004-05</td>
+                    <td>27.7%</td>
+                    <td>72.4%</td>
+                    <td>33.0%</td>
+                  </tr>
+                  <tr>
+                    <td>2005-06</td>
+                    <td>27.2%</td>
+                    <td>72.9%</td>
+                    <td>32.6%</td>
+                  </tr>
+                  <tr>
+                    <td>2006 *</td>
+                    <td>27.1%</td>
+                    <td>72.9%</td>
+                    <td>32.2%</td>
+                  </tr>
+                  <tr>
+                    <td>2007 *</td>
+                    <td>26.5%</td>
+                    <td>73.6%</td>
+                    <td>31.3%</td>
+                  </tr>
+                  <tr>
+                    <td>2008 *</td>
+                    <td>26.2%</td>
+                    <td>73.8%</td>
+                    <td>30.4%</td>
+                  </tr>
+                  <tr>
+                    <td>2009 *</td>
+                    <td>25.7%</td>
+                    <td>74.3%</td>
+                    <td>29.8%</td>
+                  </tr>
+                  <tr>
+                    <td>2010 *</td>
+                    <td>25.8%</td>
+                    <td>74.2%</td>
+                    <td>29.7%</td>
+                  </tr>
+                  <tr>
+                    <td>2011 *</td>
+                    <td>26.1%</td>
+                    <td>73.9%</td>
+                    <td>29.9%</td>
+                  </tr>
+                  <tr>
+                    <td>2012 *</td>
+                    <td>25.6%</td>
+                    <td>74.4%</td>
+                    <td>29.2%</td>
+                  </tr>
+                  <tr>
+                    <td>2013 *</td>
+                    <td>25.9%</td>
+                    <td>74.1%</td>
+                    <td>29.2%</td>
+                  </tr>
+                  <tr>
+                    <td>2014 *</td>
+                    <td>26.4%</td>
+                    <td>73.6%</td>
+                    <td>29.5%</td>
+                  </tr>
+                  <tr>
+                    <td>2015-16</td>
+                    <td>27.4%</td>
+                    <td>72.6%</td>
+                    <td>30.7%</td>
+                  </tr>
+                  <tr>
+                    <td>2016-17</td>
+                    <td>28.7%</td>
+                    <td>71.3%</td>
+                    <td>31.7%</td>
+                  </tr>
+                  <tr>
+                    <td>2017-18</td>
+                    <td>27.9%</td>
+                    <td>72.1%</td>
+                    <td>30.7%</td>
+                  </tr>
+                  <tr>
+                    <td>2018-19</td>
+                    <td>28.3%</td>
+                    <td>71.8%</td>
+                    <td>31.1%</td>
+                  </tr>
+                  <tr>
+                    <td>2019-20</td>
+                    <td>29.0%</td>
+                    <td>71.0%</td>
+                    <td>31.8%</td>
+                  </tr>
+                  <tr>
+                    <td>2020-21</td>
+                    <td>7.9%</td>
+                    <td>92.1%</td>
+                    <td>8.4%</td>
+                  </tr>
+                  <tr>
+                    <td>2021-22</td>
+                    <td>19.4%</td>
+                    <td>80.6%</td>
+                    <td>21.8%</td>
+                  </tr>
+                  <tr>
+                    <td>2022-23</td>
+                    <td>20.7%</td>
+                    <td>79.3%</td>
+                    <td>23.3%</td>
+                  </tr>
+                  <tr>
+                    <td>2023-24</td>
+                    <td>21.2%</td>
+                    <td>78.8%</td>
+                    <td>23.8%</td>
+                  </tr>
+                  <tr>
+                    <td>2024-25</td>
+                    <td>22.7%</td>
+                    <td>77.3%</td>
+                    <td>25.4%</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>* Calendar year.</p>
+            </details>
+          </figure>
+          <p>That stability matters. It tells us that the shock of 2020 was not a continuation of an existing trend, but
+            a break with one. Press “Play the story” above the chart to follow the three phases in turn: the long
+            plateau, the collapse and the partial recovery. You can also click any point to see the figures for that
+            year, or use the “At home” and “Both” buttons to see the mirror image: in 2020-21, 92.1% of food spending
+            went on food bought for the home.</p>
+        </section>
+
+        <section aria-labelledby="the-year-the-restaurants-closed">
+          <h2 id="the-year-the-restaurants-closed">The year the restaurants closed</h2>
+          <p>The fall in 2020-21 is the steepest movement in the entire series. It reflects the forced closure of the
+            hospitality sector during successive lockdowns rather than a sudden change in taste. Households did not stop
+            eating; they moved their meals, and their money, back into their own kitchens.</p>
+          <p>That year also changed how the data was collected. The survey, which asks households to record what they
+            buy over two weeks, switched from face-to-face to telephone interviews. The 2020-21 figure should be read as
+            the best available estimate of an extraordinary year rather than a precise measurement.</p>
+        </section>
+
+        <section aria-labelledby="a-recovery-that-stalled">
+          <h2 id="a-recovery-that-stalled">A recovery that stalled</h2>
+          <p>Restrictions lifted, and eating out came back quickly: the share rose to 19.4% in 2021-22. Since then,
+            however, the recovery has been slow, adding only around a point a year. If the share had simply returned to
+            its pre-pandemic level, almost three in every ten pounds spent on food would now go on eating out. Instead
+            it is closer to two in ten.</p>
+          <p>The timing points to a second pressure. The post-Covid years coincided with the sharpest rise in food
+            prices in a generation: the Office for National Statistics reported in April 2023 that food and
+            non-alcoholic drink prices had risen by 19.2% over the previous 12 months, the fastest rate in more than 45
+            years. When budgets are squeezed, a meal out is often among the first things to go.</p>
+          <p>The data cannot prove that the cost-of-living crisis is holding eating out back. But it does show that the
+            recovery slowed just as household budgets came under the greatest strain.</p>
+        </section>
+
+        <!-- Citation en exergue : reprend une phrase du texte, donc masquée aux lecteurs d'écran -->
+
+        <aside class="pullquote" aria-hidden="true">
+
+          <p>Almost three in every ten pounds spent on food once went on eating out. Now it is closer to two in ten.</p>
+
+        </aside>
+
+
+        <section aria-labelledby="does-alcohol-change-the-picture">
+          <h2 id="does-alcohol-change-the-picture">Does alcohol change the picture?</h2>
+          <p>Alcohol is the item most under-reported in this kind of survey, so Figure 1 is based on food and
+            non-alcoholic drinks only. Tick “Include alcohol” to add the same measure with drinks included. The line
+            sits a few points higher, because more of what Britons spend on alcohol goes on pubs and bars, but the shape
+            is identical: a plateau, a collapse and an incomplete recovery. Excluding alcohol, Britain has made back
+            about 70% of the ground it lost in 2020-21; including it, about 73%.</p>
+        </section>
+
+        <section aria-labelledby="what-the-numbers-cannot-tell-us">
+          <h2 id="what-the-numbers-cannot-tell-us">What the numbers cannot tell us</h2>
+          <p>These are national averages per person. They do not show which households have returned to restaurants and
+            which have not, and they cannot tell us whether the gap reflects choice or necessity. Defra publishes the
+            same survey broken down by income, region and household type, and those figures will be essential to
+            understanding who is missing from Britain's restaurants.</p>
+          <p>The shares in Figure 1 are calculated from spending in current prices. Because both sides of the comparison
+            are measured in the same pounds, a general rise in prices does not distort the share in itself; but if
+            restaurant prices rose faster than supermarket prices, part of the change could reflect costs rather than
+            habits.</p>
+          <p>What is clear is that eating out, a central part of British social life before 2020, has not reclaimed its
+            place. Whether that gap closes may depend less on public health than on the state of household finances.</p>
+        </section>
+
+        <section class="article__note" aria-labelledby="about-the-data">
+          <h2 id="about-the-data">About the data</h2>
+          <p>Source: Defra, Family Food datasets (UKExp_17Sep26, published 17 September 2026), based on the Living Costs
+            and Food Survey. The share eaten out is calculated as spending on food and non-alcoholic drinks for
+            consumption outside the home divided by total spending on food and non-alcoholic drinks. Periods from 2006
+            to 2014 are calendar years; other periods are financial years (April to March). Inflation figure: Office for
+            National Statistics, Consumer price inflation, UK: March 2023, published 19 April 2023.</p>
+        </section>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Student project – SAÉ 303-2 Data visualisation, BUT MMI, IUT du Puy-en-Velay. Article written in the editorial
+        style of The Guardian; not affiliated with or published by The Guardian.</p>
+      <p>Data: Defra, Family Food datasets (UKExp_17Sep26). Libraries: Chart.js 4.4.1, GSAP 3.12.5.</p>
+      <!-- À compléter : lien vers le carrousel Instagram une fois publié -->
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="js/story.js"></script>
+</body>
+
+</html>
